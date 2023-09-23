@@ -59,13 +59,20 @@ to the filesystem with the following content:
 
 ## API
 
-### decode(inistring)
+### decode(inistring, [options])
 
 Decode the ini-style formatted `inistring` into a nested object.
 
-### parse(inistring)
+The `options` object may contain the following:
 
-Alias for `decode(inistring)`
+* `bracketedArray` Boolean to specify whether array values are appended
+  with `[]`.  By default this is true but there are some ini parsers
+  that instead treat duplicate names as arrays.
+* `retainComments` Boolean to specify whether comments should be retained and tracked. (NOTE: The `sort` option is not available when comments are retained)
+
+### parse(inistring, [options])
+
+Alias for `decode(inistring, [options])`
 
 ### encode(object, [options])
 
@@ -99,6 +106,7 @@ The `options` object may contain the following:
 * `bracketedArray` Boolean to specify whether array values are appended
   with `[]`.  By default this is true but there are some ini parsers
   that instead treat duplicate names as arrays.
+* `retainComments` Boolean to specify whether comments should be retained and tracked. (NOTE: The `sort` option is not available when comments are retained)
 
 For backwards compatibility reasons, if a `string` options is passed
 in, then it is assumed to be the `section` value.
@@ -115,7 +123,7 @@ value in an ini-file. Basically escapes quotes. For example
 ```js
     ini.safe('"unsafe string"')
 ```
-
+ 
 would result in
 
     "\"unsafe string\""
@@ -123,3 +131,7 @@ would result in
 ### unsafe(val)
 
 Unescapes the string `val`
+
+### insertCommentBefore(comment, before, iniOrSection)
+
+Inserts the string `comment` into before the provided `before` key for the given ini or section. (NOTE: This function returns a new object with the inserted comment at the correct place. For correct placement, ensure to use the returned object and not the original) Also note, this will only provide meaningfull output when combine with `retainComments` set to `true` on your `options` for `encode`/`decode`.

@@ -1,8 +1,10 @@
 
 interface EncodeOptions {
-    section?: string;
-    whitespace?: boolean;
+    retainComments?: boolean;
     align?: boolean;
+    section?: string;
+    sort?: boolean;
+    whitespace?: boolean;
     newline?: boolean;
     platform?: string;
     bracketedArray?: boolean;
