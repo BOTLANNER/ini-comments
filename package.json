@@ -1,13 +1,14 @@
 {
-  "author": "GitHub Inc.",
-  "name": "ini",
-  "description": "An ini encoder/decoder for node",
+  "author": "BOTLANNER",
+  "name": "ini-comments",
+  "description": "An ini encoder/decoder with comments support for node",
   "version": "4.1.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/ini.git"
+    "url": "https://github.com/BOTLANNER/ini-comments.git"
   },
-  "main": "lib/ini.js",
+  "main": "./index.mjs",
+  "types": "./index.d.ts",
   "scripts": {
     "eslint": "eslint",
     "lint": "eslint \"**/*.js\"",
@@ -26,7 +27,9 @@
   "license": "ISC",
   "files": [
     "bin/",
-    "lib/"
+    "lib/",
+    "index.mjs",
+    "index.d.ts"
   ],
   "engines": {
     "node": "^14.17.0 || ^16.13.0 || >=18.0.0"

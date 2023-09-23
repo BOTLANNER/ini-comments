@@ -27,3 +27,5 @@
 !/SECURITY.md
 !/tap-snapshots/
 !/test/
+!/index.mjs
+!/index.d.ts
